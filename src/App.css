@@ -1,0 +1,488 @@
+/* ===== App 主样式 ===== */
+
+/* 整体应用容器 */
+.app {
+  position: relative;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+/* ===== Hero 首屏区域 ===== */
+.hero-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* 磁力线容器 */
+.magnet-lines-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Hero 内容区域 */
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 10;
+}
+
+/* 主标题 */
+.hero-title {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.hero-split-title {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* 副标题 */
+.hero-subtitle {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero-shiny {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* 描述文字 */
+.hero-desc {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: rgba(228, 228, 231, 0.6);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* ===== 滚动指示器 ===== */
+.scroll-indicator {
+  position: absolute;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  z-index: 10;
+}
+
+.scroll-arrow {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid rgba(168, 85, 247, 0.6);
+  border-bottom: 2px solid rgba(168, 85, 247, 0.6);
+  transform: rotate(45deg);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-arrow:nth-child(2) {
+  animation-delay: 0.15s;
+  opacity: 0.5;
+}
+
+@keyframes scrollBounce {
+  0%, 20%, 50%, 80%, 100% { transform: rotate(45deg) translateY(0); }
+  40% { transform: rotate(45deg) translateY(-8px); }
+  60% { transform: rotate(45deg) translateY(-4px); }
+}
+
+.scroll-text {
+  font-size: 0.75rem;
+  color: rgba(168, 85, 247, 0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ===== 通用 Section 容器 ===== */
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2.5rem;
+}
+
+.section-heading-center {
+  text-align: center;
+}
+
+/* ===== About 关于我板块 ===== */
+.about-section {
+  position: relative;
+  padding: 8rem 0;
+  z-index: 3;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* 头像占位 */
+.about-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 1rem;
+}
+
+.avatar-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7, #06b6d4, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 60px rgba(168, 85, 247, 0.3),
+              0 0 120px rgba(6, 182, 212, 0.15);
+  animation: avatarFloat 6s ease-in-out infinite;
+}
+
+@keyframes avatarFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.avatar-emoji {
+  font-size: 4rem;
+  color: #fff;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* 介绍文字 */
+.about-text {
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  color: rgba(228, 228, 231, 0.75);
+  line-height: 1.8;
+}
+
+/* 技能标签网格 */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.skill-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  color: #c084fc;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  animation: skillFadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes skillFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-badge:hover {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: rgba(168, 85, 247, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.2);
+}
+
+/* ===== Projects 项目展示板块 ===== */
+.projects-section {
+  position: relative;
+  padding: 8rem 0;
+  z-index: 3;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* 项目卡片 */
+.project-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* 初始状态：透明，等待 IntersectionObserver 激活 */
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.project-card.card-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.12),
+              0 0 0 1px rgba(168, 85, 247, 0.15);
+}
+
+/* 卡片顶部渐变条 */
+.card-gradient-bar {
+  height: 3px;
+  background: linear-gradient(90deg, #a855f7, #06b6d4, #7c3aed);
+}
+
+/* 卡片内容 */
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: rgba(228, 228, 231, 0.6);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* 技术标签 */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.card-tag {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #22d3ee;
+  font-weight: 500;
+}
+
+/* 项目链接 */
+.card-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #a855f7;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.card-link:hover {
+  color: #c084fc;
+  transform: translateX(4px);
+}
+
+/* ===== Contact 联系板块 ===== */
+.contact-section {
+  position: relative;
+  padding: 8rem 0 6rem;
+  z-index: 3;
+}
+
+.contact-heading {
+  margin-bottom: 2rem;
+}
+
+.contact-desc {
+  text-align: center;
+  font-size: 1.05rem;
+  color: rgba(228, 228, 231, 0.6);
+  max-width: 500px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+}
+
+/* 联系链接 */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #e4e4e7;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.15);
+}
+
+.contact-icon {
+  font-size: 1.2rem;
+}
+
+/* ===== 页脚 ===== */
+.footer {
+  margin-top: 6rem;
+  text-align: center;
+  padding-bottom: 5rem; /* 为 Dock 留出空间 */
+}
+
+.footer p {
+  font-size: 0.85rem;
+  color: rgba(228, 228, 231, 0.35);
+  font-weight: 300;
+}
+
+/* ===== 响应式适配 ===== */
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .about-avatar {
+    justify-content: center;
+  }
+
+  .avatar-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .avatar-emoji {
+    font-size: 3rem;
+  }
+
+  .skills-grid {
+    justify-content: center;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-link {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .section-container {
+    padding: 0 1.5rem;
+  }
+
+  .about-section,
+  .projects-section,
+  .contact-section {
+    padding: 5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+  }
+
+  .scroll-indicator {
+    bottom: 80px;
+  }
+}
+
+/* ===== 玻璃拟态效果 ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+/* ===== 全局装饰 ===== */
+.about-section::before,
+.projects-section::before,
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), transparent);
+}

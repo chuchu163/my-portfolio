@@ -1,0 +1,15 @@
+/* MagnetLines 磁力线样式 */
+.magnet-lines-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+  opacity: 0.6;
+}
+
+.magnet-lines-svg path {
+  transition: stroke-opacity 0.3s ease;
+}

@@ -1,0 +1,18 @@
+/* ShinyText 闪烁文字样式 */
+.shiny-text {
+  display: inline-block;
+  background: linear-gradient(
+    var(--spread, 60deg),
+    var(--base-color, #fff) 0%,
+    var(--base-color, #fff) 40%,
+    var(--shine-color, #a855f7) 50%,
+    var(--base-color, #fff) 60%,
+    var(--base-color, #fff) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: var(--animation-name) var(--animation-speed, 3s) linear infinite;
+  animation-play-state: var(--paused, running);
+}
